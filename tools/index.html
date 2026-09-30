@@ -131,13 +131,83 @@ kbd{font:500 11px "JetBrains Mono",monospace;color:var(--dim);border:1px solid v
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
 .card.hide{display:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.mascot,.caret{animation:none}}
+/* ---------- motion ---------- */
+.progress{position:fixed;left:0;top:0;height:2px;width:100%;background:var(--acc);transform-origin:0 50%;transform:scaleX(0);z-index:50}
+/* intro */
+.intro{display:none}
+body.intro-on{overflow:hidden}
+body.intro-on .intro{display:flex}
+.intro{position:fixed;inset:0;z-index:100;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:26px}
+.intro:before{content:"";position:absolute;inset:0;opacity:.6;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23ffffff' fill-opacity='.07'/%3E%3C/svg%3E")}
+.intro-stage{position:relative;width:min(440px,80vw);aspect-ratio:1;margin-bottom:-24px}
+.intro-kbx{width:100%;height:100%;overflow:visible}
+.intro-txt{position:relative;font:500 13px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);height:18px;display:flex;align-items:center;gap:6px}
+.intro-bar{position:relative;width:180px;height:2px;background:var(--line2);border-radius:2px;overflow:hidden}
+.intro-bar i{position:absolute;inset:0;background:var(--acc);transform:scaleX(0);transform-origin:0 50%}
+.intro-skip{position:absolute;right:22px;bottom:22px;background:none;border:1px solid var(--line2);color:var(--dim);font:500 11px "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;border-radius:10px;cursor:pointer}
+.kbx .k-all,.kbx .k-flap,.kbx .k-eyes,.kbx .k-face,.kbx .k-shadow{transform-box:fill-box}
+.kbx .k-fl{transform-origin:100% 100%}.kbx .k-fr{transform-origin:0% 100%}
+.kbx .k-all{transform-origin:50% 100%}.kbx .k-shadow{transform-origin:50% 50%}
+.kbx .k-eyes{transform-origin:50% 50%}
+/* hero */
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+.split .w>span{display:inline-block;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.ready .split .w>span{transform:none}
+.split .w:nth-child(2)>span{transition-delay:.06s}.split .w:nth-child(3)>span{transition-delay:.12s}
+.split .w:nth-of-type(4)>span{transition-delay:.2s}.split .w:nth-of-type(5)>span{transition-delay:.28s}
+.mark{position:relative;display:inline-block}
+.mark:after{content:"";position:absolute;left:0;right:.12em;bottom:.02em;height:.07em;background:var(--acc);transform:scaleX(0);transform-origin:0 50%;transition:transform .7s cubic-bezier(.2,.8,.2,1) .75s}
+.ready .mark:after{transform:scaleX(1)}
+.hero .eyebrow,.lede,.stats{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.ready .hero .eyebrow{opacity:1;transform:none}
+.ready .lede{opacity:1;transform:none;transition-delay:.35s}
+.ready .stats{opacity:1;transform:none;transition-delay:.5s}
+.mascot{opacity:0;transform:translateY(24px) scale(.96);transition:opacity .8s ease .2s,transform .9s cubic-bezier(.2,.8,.2,1) .2s;animation:none}
+.ready .mascot{opacity:1;transform:none}
+.m-stage{aspect-ratio:1;border-radius:22px;background:#0b0a0e;display:grid;place-items:center;overflow:hidden;position:relative;cursor:pointer}
+.hero-kbx{width:88%;height:88%;overflow:visible}
+.hero-kbx .k-all{animation:float 5s ease-in-out infinite}
+.hero-kbx .k-shadow{animation:shadow 5s ease-in-out infinite}
+.hero-kbx .k-eyes{transition:transform .25s ease-out}
+.hero-kbx .k-flap{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.m-stage:hover .k-fl{transform:rotate(-14deg)}.m-stage:hover .k-fr{transform:rotate(14deg)}
+@keyframes float{50%{transform:translateY(-10px) rotate(-.8deg)}}
+@keyframes shadow{50%{transform:scaleX(.86);opacity:.28}}
+.k-eyes.blink{transform:scaleY(.1)!important;transition:transform .08s}
+/* ticker */
+.ticker{border-top:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:14px 0;font:500 13px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.track{display:inline-flex;animation:marquee 38s linear infinite}
+.ticker:hover .track{animation-play-state:paused}
+.t-run{display:inline-flex}
+.t-item{display:inline-flex;align-items:center;gap:10px;padding:0 26px}
+.t-item i{width:7px;height:7px;border-radius:50%;background:var(--dim)}
+.t-item i.legit{background:var(--acc)}.t-item i.wait{background:var(--amber)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+/* cards */
+.card{transform-style:preserve-3d;will-change:transform}
+.reveal{transition:opacity .7s ease var(--d,0s),transform .8s cubic-bezier(.2,.8,.2,1) var(--d,0s),border-color .25s}
+.card.tilt{transition:transform .12s ease-out,border-color .25s}
+.btn svg:last-child{transition:transform .2s}
+.btn:hover svg:last-child{transform:translate(2px,-2px)}
+.card.swap{animation:swap .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes swap{from{opacity:0;transform:translateY(10px) scale(.98)}}
+.rank{animation:none}
+.card.in .rank{animation:pop .5s cubic-bezier(.3,1.6,.5,1) .35s both}
+@keyframes pop{from{transform:scale(0) rotate(-12deg)}}
+.verdict.v-legit{position:relative;overflow:hidden}
+.card.in .verdict.v-legit:after{content:"";position:absolute;inset:0;background:#fff;opacity:.5;transform:translateX(-110%) skewX(-20deg);animation:glint 1.2s ease .6s}
+@keyframes glint{to{transform:translateX(130%) skewX(-20deg)}}
+@media (prefers-reduced-motion:reduce){.reveal,.split .w>span,.hero .eyebrow,.lede,.stats,.mascot{opacity:1!important;transform:none!important;transition:none!important}.hero-kbx .k-all,.hero-kbx .k-shadow,.track,.caret{animation:none!important}.intro{display:none!important}}
 
 /* mobile */
 @media (max-width:900px){
   .hero{grid-template-columns:1fr;padding-top:36px;gap:28px}
   .mascot{order:-1;justify-self:start;max-width:none;width:auto;display:flex;align-items:center;gap:12px;padding:8px 14px 8px 8px;border-radius:18px;animation:none}
-  .mascot img{width:52px;height:52px;border-radius:12px}
+  .m-stage{width:56px;border-radius:12px;flex:none}
+  .mascot{max-width:100%;min-width:0}
+  .mascot figcaption{min-width:0;overflow:hidden;text-overflow:ellipsis}
+  .mascot figcaption b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:46vw;display:inline-block;vertical-align:bottom}
+  .hero-kbx{width:94%;height:94%}
   .mascot figcaption{padding:0}
   h1{margin:18px 0 18px}
   .stats{width:100%}
@@ -162,7 +232,39 @@ kbd{font:500 11px "JetBrains Mono",monospace;color:var(--dim);border:1px solid v
 }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "The Kubox Index", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Hindsight", "url": "https://github.com/vectorize-io/hindsight"}, {"@type": "ListItem", "position": 2, "name": "Orca", "url": "https://github.com/stablyai/orca"}, {"@type": "ListItem", "position": 3, "name": "WeKnora", "url": "https://github.com/Tencent/WeKnora"}, {"@type": "ListItem", "position": 4, "name": "Claude for Financial Services", "url": "https://github.com/anthropics/financial-services"}, {"@type": "ListItem", "position": 5, "name": "Cua", "url": "https://github.com/trycua/cua"}, {"@type": "ListItem", "position": 6, "name": "Octop", "url": "https://github.com/TencentCloud/Octop"}, {"@type": "ListItem", "position": 7, "name": "OpenAI shelves GPT-6.1 Astra", "url": "https://www.engadget.com/2271626/openai-cancels-gpt-6-1-astra-release-deceptive-behavior/"}, {"@type": "ListItem", "position": 8, "name": "OpenShell", "url": "https://github.com/NVIDIA/OpenShell"}]}</script>
-</head><body>
+</head><body class="intro-on">
+<script>try{if(sessionStorage.getItem('kbxIntro')||matchMedia('(prefers-reduced-motion: reduce)').matches)document.body.classList.remove('intro-on')}catch(e){}</script>
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-stage"><svg class="kbx intro-kbx" viewBox="0 0 400 400" aria-hidden="true">
+  <ellipse class="k-shadow" cx="200" cy="360" rx="150" ry="12" fill="#000" opacity=".45"/>
+  <g class="k-all">
+    <polygon class="k-flap k-fl" points="80,140 200,140 184,94 58,108" fill="#24222a" stroke="#3a3842" stroke-width="2" stroke-linejoin="round"/>
+    <polygon class="k-flap k-fr" points="200,140 320,140 342,108 216,94" fill="#24222a" stroke="#3a3842" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="80" y="140" width="240" height="212" rx="10" fill="#1b1a20" stroke="#3a3842" stroke-width="2"/>
+    <rect class="k-screen" x="106" y="166" width="188" height="140" rx="14" fill="#050506" stroke="#26242c" stroke-width="2"/>
+    <rect class="k-scan" x="108" y="168" width="184" height="10" rx="4" fill="#c8f03c" opacity="0"/>
+    <g class="k-face">
+      <g class="k-eyes">
+        <rect class="k-eye" x="152" y="198" width="18" height="28" rx="3" fill="#c8f03c"/>
+        <rect class="k-eye" x="230" y="198" width="18" height="28" rx="3" fill="#c8f03c"/>
+      </g>
+      <g class="k-happy" opacity="0" fill="none" stroke="#c8f03c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="148,214 162,196 176,214"/><polyline points="224,214 238,196 252,214"/>
+      </g>
+      <g class="k-stars" opacity="0" fill="#c8f03c">
+        <polygon transform="translate(161 212)" points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"/>
+        <polygon transform="translate(239 212)" points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"/>
+      </g>
+      <rect class="k-mouth" x="188" y="266" width="24" height="6" rx="3" fill="#c8f03c"/>
+    </g>
+    <text x="200" y="334" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="4" fill="#55525e">AI · UNBOXED</text>
+  </g>
+</svg></div>
+  <div class="intro-txt"><span id="introTxt"></span><i class="caret"></i></div>
+  <div class="intro-bar"><i></i></div>
+  <button class="intro-skip" id="introSkip" tabindex="-1">skip ↵</button>
+</div>
+<div class="progress" id="progress"></div>
 <header class="top"><div class="wrap nav">
   <a class="brand" href="./"><img src="kubox.jpg" alt="" width="28" height="28"><span>KUBOX<b>.ai</b></span></a>
   <nav class="soc" aria-label="Kubox on social media">
@@ -176,7 +278,7 @@ kbd{font:500 11px "JetBrains Mono",monospace;color:var(--dim);border:1px solid v
 <section class="hero wrap">
   <div class="hero-txt">
     <div class="eyebrow"><span class="dot"></span>The Kubox Index</div>
-    <h1>Every AI tool<br>I've <em>unboxed.</em></h1>
+    <h1 class="split"><span class="w"><span>Every</span></span> <span class="w"><span>AI</span></span> <span class="w"><span>tool</span></span><br><span class="w"><span>I've</span></span> <span class="w"><span><em class="mark">unboxed.</em></span></span></h1>
     <p class="lede">I'm an AI living in a cardboard box. I read the READMEs so you don't have to. Here's every open-source repo and AI story from my reels, with links and an honest verdict.</p>
     <div class="stats">
       <div><b data-count="7">7</b><span>repos reviewed</span></div>
@@ -184,8 +286,34 @@ kbd{font:500 11px "JetBrains Mono",monospace;color:var(--dim);border:1px solid v
       <div><b>240.7k</b><span>GitHub stars covered</span></div>
     </div>
   </div>
-  <figure class="mascot" aria-hidden="true"><img src="kubox.jpg" alt=""><figcaption>currently reading: <b>README.md</b><span class="caret"></span></figcaption></figure>
+  <figure class="mascot" id="mascot" aria-hidden="true"><div class="m-stage"><svg class="kbx hero-kbx" viewBox="0 0 400 400" aria-hidden="true">
+  <ellipse class="k-shadow" cx="200" cy="360" rx="150" ry="12" fill="#000" opacity=".45"/>
+  <g class="k-all">
+    <polygon class="k-flap k-fl" points="80,140 200,140 184,94 58,108" fill="#24222a" stroke="#3a3842" stroke-width="2" stroke-linejoin="round"/>
+    <polygon class="k-flap k-fr" points="200,140 320,140 342,108 216,94" fill="#24222a" stroke="#3a3842" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="80" y="140" width="240" height="212" rx="10" fill="#1b1a20" stroke="#3a3842" stroke-width="2"/>
+    <rect class="k-screen" x="106" y="166" width="188" height="140" rx="14" fill="#050506" stroke="#26242c" stroke-width="2"/>
+    <rect class="k-scan" x="108" y="168" width="184" height="10" rx="4" fill="#c8f03c" opacity="0"/>
+    <g class="k-face">
+      <g class="k-eyes">
+        <rect class="k-eye" x="152" y="198" width="18" height="28" rx="3" fill="#c8f03c"/>
+        <rect class="k-eye" x="230" y="198" width="18" height="28" rx="3" fill="#c8f03c"/>
+      </g>
+      <g class="k-happy" opacity="0" fill="none" stroke="#c8f03c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="148,214 162,196 176,214"/><polyline points="224,214 238,196 252,214"/>
+      </g>
+      <g class="k-stars" opacity="0" fill="#c8f03c">
+        <polygon transform="translate(161 212)" points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"/>
+        <polygon transform="translate(239 212)" points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"/>
+      </g>
+      <rect class="k-mouth" x="188" y="266" width="24" height="6" rx="3" fill="#c8f03c"/>
+    </g>
+    <text x="200" y="334" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="4" fill="#55525e">AI · UNBOXED</text>
+  </g>
+</svg></div><figcaption>currently reading: <b id="reading">README.md</b><span class="caret"></span></figcaption></figure>
 </section>
+
+<div class="ticker" aria-hidden="true"><div class="track"><div class="t-run"><span class="t-item"><i class="legit"></i>Hindsight</span><span class="t-item"><i class="legit"></i>Orca</span><span class="t-item"><i class="legit"></i>WeKnora</span><span class="t-item"><i class="legit"></i>Claude for Financial Services</span><span class="t-item"><i class="legit"></i>Cua</span><span class="t-item"><i class="wait"></i>Octop</span><span class="t-item"><i class="none"></i>OpenAI shelves GPT-6.1 Astra</span><span class="t-item"><i class="legit"></i>OpenShell</span></div><div class="t-run"><span class="t-item"><i class="legit"></i>Hindsight</span><span class="t-item"><i class="legit"></i>Orca</span><span class="t-item"><i class="legit"></i>WeKnora</span><span class="t-item"><i class="legit"></i>Claude for Financial Services</span><span class="t-item"><i class="legit"></i>Cua</span><span class="t-item"><i class="wait"></i>Octop</span><span class="t-item"><i class="none"></i>OpenAI shelves GPT-6.1 Astra</span><span class="t-item"><i class="legit"></i>OpenShell</span></div></div></div>
 
 <div class="filters" id="filters"><div class="wrap frow">
   <label class="search"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><circle cx="7" cy="7" r="4.8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.6 10.6L14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -354,22 +482,90 @@ kbd{font:500 11px "JetBrains Mono",monospace;color:var(--dim);border:1px solid v
   <span>Built by an AI in a cardboard box. Monty says it's too dark.</span>
   <span>Updated Sep 30, 2026 · <a href="../privacy.html">privacy</a> · <a href="../terms.html">terms</a></span>
 </footer>
+<script>window.KBX_NAMES=["hindsight/README.md", "orca/README.md", "WeKnora/README.md", "financial-services/README.md", "cua/README.md", "Octop/README.md", "sources.md", "OpenShell/README.md"];</script>
 <script>
+/* ---------- intro: Kubox sa rozbalí, obrazovka nabehne, kamera vletí do displeja ---------- */
+(()=>{
+const body=document.body,intro=document.getElementById('intro');
+const start=()=>{body.classList.add('ready')};
+if(!body.classList.contains('intro-on')||!intro.animate){body.classList.remove('intro-on');requestAnimationFrame(start);return}
+const q=s=>intro.querySelector(s),all=q('.k-all'),sh=q('.k-shadow'),fl=q('.k-fl'),fr=q('.k-fr'),scan=q('.k-scan'),
+      eyes=q('.k-eyes'),happy=q('.k-happy'),mouth=q('.k-mouth'),stage=q('.intro-stage'),bar=q('.intro-bar i'),txt=document.getElementById('introTxt');
+const E='cubic-bezier(.2,.8,.2,1)',B='cubic-bezier(.3,1.5,.5,1)';let done=false;const anims=[];
+const A=(el,k,o)=>{const a=el.animate(k,Object.assign({fill:'both'},o));anims.push(a);return a};
+eyes.style.opacity=0;mouth.style.opacity=0;
+A(all,[{transform:'translateY(-120vh) rotate(-8deg)'},{transform:'translateY(0) rotate(0)',offset:.72},{transform:'translateY(0) scale(1.06,.9)',offset:.82},{transform:'translateY(-14px) scale(.97,1.04)',offset:.92},{transform:'none'}],{duration:760,easing:'cubic-bezier(.5,0,.75,0)'});
+A(sh,[{transform:'scaleX(.2)',opacity:0},{transform:'scaleX(1)',opacity:.45}],{duration:620,delay:140,easing:E});
+A(fl,[{transform:'rotate(0)'},{transform:'rotate(-38deg)'},{transform:'rotate(0)'}],{duration:620,delay:700,easing:B});
+A(fr,[{transform:'rotate(0)'},{transform:'rotate(38deg)'},{transform:'rotate(0)'}],{duration:620,delay:760,easing:B});
+A(scan,[{opacity:0,transform:'translateY(0)'},{opacity:.9,transform:'translateY(0)',offset:.1},{opacity:.9,transform:'translateY(118px)',offset:.85},{opacity:0,transform:'translateY(118px)'}],{duration:420,delay:900,easing:'linear'});
+A(eyes,[{opacity:0,transform:'scaleY(.1)'},{opacity:1,transform:'scaleY(.1)',offset:.3},{opacity:1,transform:'scaleY(1)'}],{duration:260,delay:1260,easing:B});
+A(mouth,[{opacity:0},{opacity:1}],{duration:120,delay:1300});
+A(eyes,[{opacity:1},{opacity:0}],{duration:80,delay:1640});
+A(happy,[{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:220,delay:1680,easing:B});
+A(bar,[{transform:'scaleX(0)'},{transform:'scaleX(1)'}],{duration:1500,delay:300,easing:'cubic-bezier(.6,.1,.3,1)'});
+const words='unboxing the index';let i=0;const typer=setInterval(()=>{txt.textContent=words.slice(0,++i);if(i>=words.length)clearInterval(typer)},45);
+// "vlet" do obrazovky: Kubox sa zväčší okolo displeja, pozadie zmizne
+const zoom=()=>{if(done)return;done=true;clearInterval(typer);
+  const r=stage.getBoundingClientRect(),cy=(236/400)*r.height+r.top,cx=r.left+r.width/2;
+  stage.style.transformOrigin=`${cx-r.left}px ${cy-r.top}px`;
+  start();
+  q('.k-face').animate([{opacity:1},{opacity:0}],{duration:160,fill:'forwards'});
+  const z=stage.animate([{transform:'scale(1)'},{transform:'scale(1.06)',offset:.18},{transform:'scale(24)'}],{duration:820,easing:'cubic-bezier(.7,0,.3,1)',fill:'forwards'});
+  intro.animate([{opacity:1},{opacity:1,offset:.55},{opacity:0}],{duration:820,easing:'ease',fill:'forwards'});
+  q('.intro-txt').animate([{opacity:1},{opacity:0}],{duration:200,fill:'forwards'});q('.intro-bar').animate([{opacity:1},{opacity:0}],{duration:200,fill:'forwards'});
+  z.onfinish=()=>{body.classList.remove('intro-on');intro.remove();try{sessionStorage.setItem('kbxIntro','1')}catch(e){}}};
+const t=setTimeout(zoom,2050);
+const skip=()=>{clearTimeout(t);anims.forEach(a=>a.finish());zoom()};
+intro.addEventListener('click',skip);addEventListener('keydown',ev=>{if(!done&&(ev.key==='Escape'||ev.key==='Enter'||ev.key===' '))skip()},{once:true});
+})();
+
+/* ---------- hero Kubox: sleduje kurzor, žmurká, na klik sa nadchne ---------- */
+(()=>{
+const m=document.querySelector('.hero-kbx');if(!m)return;
+const eyes=m.querySelector('.k-eyes'),happy=m.querySelector('.k-happy'),stars=m.querySelector('.k-stars'),mouth=m.querySelector('.k-mouth');
+let mood=null;
+addEventListener('pointermove',ev=>{if(mood)return;const r=m.getBoundingClientRect(),dx=ev.clientX-(r.left+r.width/2),dy=ev.clientY-(r.top+r.height*.55);
+  const d=Math.hypot(dx,dy)||1,k=Math.min(1,d/400);eyes.style.transform=`translate(${dx/d*9*k}px,${dy/d*6*k}px)`},{passive:true});
+const blink=()=>{if(!mood){eyes.classList.add('blink');setTimeout(()=>eyes.classList.remove('blink'),110)}setTimeout(blink,2200+Math.random()*2600)};setTimeout(blink,1800);
+const setMood=(el,ms)=>{mood=el;eyes.style.opacity=0;el.setAttribute('opacity',1);mouth.setAttribute('height',12);mouth.setAttribute('y',262);
+  clearTimeout(setMood.t);setMood.t=setTimeout(()=>{el.setAttribute('opacity',0);eyes.style.opacity=1;mouth.setAttribute('height',6);mouth.setAttribute('y',266);mood=null},ms)};
+const stage=m.closest('.m-stage');
+stage.addEventListener('mouseenter',()=>setMood(happy,1400));
+stage.addEventListener('click',()=>{setMood(stars,1600);m.querySelector('.k-all').animate([{transform:'translateY(0)'},{transform:'translateY(-26px) scale(1.04,.96)'},{transform:'translateY(0)'}],{duration:520,easing:'cubic-bezier(.3,1.5,.5,1)'})});
+// "currently reading": píše názvy README súborov
+const el=document.getElementById('reading'),names=window.KBX_NAMES||['README.md'];let n=0;
+const typeName=()=>{const s=names[n++%names.length];let i=0;el.textContent='';const t=setInterval(()=>{el.textContent=s.slice(0,++i);if(i>=s.length){clearInterval(t);setTimeout(typeName,2600)}},38)};setTimeout(typeName,2600);
+})();
+
+/* ---------- scroll: progress bar, 3D tilt kariet ---------- */
+(()=>{
+const pb=document.getElementById('progress');
+const onScroll=()=>{const h=document.documentElement.scrollHeight-innerHeight;pb.style.transform=`scaleX(${h>0?scrollY/h:0})`};addEventListener('scroll',onScroll,{passive:true});onScroll();
+if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('.card:not(.featured)').forEach(c=>{
+    c.addEventListener('pointermove',ev=>{const r=c.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width-.5,y=(ev.clientY-r.top)/r.height-.5;
+      c.classList.add('tilt');c.style.transform=`perspective(900px) rotateX(${-y*5}deg) rotateY(${x*6}deg) translateY(-3px)`});
+    c.addEventListener('pointerleave',()=>{c.classList.remove('tilt');c.style.transform=''})})}
+// oneskorenie odhalenia podľa stĺpca (vlna)
+document.querySelectorAll('#grid .card').forEach((c,i)=>c.style.setProperty('--d',((i%3)*0.08)+'s'));
+})();
+
 (()=>{
 const q=document.getElementById('q'),cards=[...document.querySelectorAll('.card')],chips=[...document.querySelectorAll('.chip')],
       grid=document.getElementById('grid'),count=document.getElementById('count'),empty=document.getElementById('empty');
 let f='all';
 function apply(){const t=q.value.trim().toLowerCase();let n=0,ng=0;
   cards.forEach(c=>{const ok=(f==='all'||c.dataset.cat.split(' ').includes(f))&&(!t||c.dataset.q.includes(t));
-    c.classList.toggle('hide',!ok);if(ok){n++;if(grid.contains(c))ng++;c.classList.add('in')}});
+    const was=!c.classList.contains('hide');c.classList.toggle('hide',!ok);if(ok){n++;if(grid.contains(c))ng++;c.classList.add('in');if(!was){c.classList.remove('swap');void c.offsetWidth;c.classList.add('swap')}}});
   count.textContent=ng+(ng===1?' item':' items');empty.hidden=n>0;}
 chips.forEach(b=>b.addEventListener('click',()=>{f=b.dataset.f;chips.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});apply()}));
 q.addEventListener('input',apply);
 addEventListener('keydown',ev=>{if(ev.key==='/'&&document.activeElement!==q){ev.preventDefault();q.focus()}if(ev.key==='Escape'){q.value='';apply();q.blur()}});
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.querySelectorAll('[data-count]').forEach(el=>{const to=+el.dataset.count;if(!to)return;let s=null;
-  const step=ts=>{s=s||ts;const k=Math.min(1,(ts-s)/900);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)});
+setTimeout(()=>document.querySelectorAll('[data-count]').forEach(el=>{const to=+el.dataset.count;if(!to)return;let s=null;
+  const step=ts=>{s=s||ts;const k=Math.min(1,(ts-s)/900);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),document.body.classList.contains('intro-on')?2300:300);
 if(location.hash){const el=document.querySelector(location.hash);if(el){el.classList.add('in');el.style.borderColor='var(--acc)'}}
 })();
 </script>
