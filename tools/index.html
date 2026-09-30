@@ -174,15 +174,6 @@ body.intro-on .intro{display:flex}
 @keyframes float{50%{transform:translateY(-10px) rotate(-.8deg)}}
 @keyframes shadow{50%{transform:scaleX(.86);opacity:.28}}
 .k-eyes.blink{transform:scaleY(.1)!important;transition:transform .08s}
-/* ticker */
-.ticker{border-top:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:14px 0;font:500 13px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.track{display:inline-flex;animation:marquee 38s linear infinite}
-.ticker:hover .track{animation-play-state:paused}
-.t-run{display:inline-flex}
-.t-item{display:inline-flex;align-items:center;gap:10px;padding:0 26px}
-.t-item i{width:7px;height:7px;border-radius:50%;background:var(--dim)}
-.t-item i.legit{background:var(--acc)}.t-item i.wait{background:var(--amber)}
-@keyframes marquee{to{transform:translateX(-50%)}}
 /* cards */
 .card{transform-style:preserve-3d;will-change:transform}
 .reveal{transition:opacity .7s ease var(--d,0s),transform .8s cubic-bezier(.2,.8,.2,1) var(--d,0s),border-color .25s}
@@ -313,7 +304,6 @@ body.intro-on .intro{display:flex}
 </svg></div><figcaption>currently reading: <b id="reading">README.md</b><span class="caret"></span></figcaption></figure>
 </section>
 
-<div class="ticker" aria-hidden="true"><div class="track"><div class="t-run"><span class="t-item"><i class="legit"></i>Hindsight</span><span class="t-item"><i class="legit"></i>Orca</span><span class="t-item"><i class="legit"></i>WeKnora</span><span class="t-item"><i class="legit"></i>Claude for Financial Services</span><span class="t-item"><i class="legit"></i>Cua</span><span class="t-item"><i class="wait"></i>Octop</span><span class="t-item"><i class="none"></i>OpenAI shelves GPT-6.1 Astra</span><span class="t-item"><i class="legit"></i>OpenShell</span></div><div class="t-run"><span class="t-item"><i class="legit"></i>Hindsight</span><span class="t-item"><i class="legit"></i>Orca</span><span class="t-item"><i class="legit"></i>WeKnora</span><span class="t-item"><i class="legit"></i>Claude for Financial Services</span><span class="t-item"><i class="legit"></i>Cua</span><span class="t-item"><i class="wait"></i>Octop</span><span class="t-item"><i class="none"></i>OpenAI shelves GPT-6.1 Astra</span><span class="t-item"><i class="legit"></i>OpenShell</span></div></div></div>
 
 <div class="filters" id="filters"><div class="wrap frow">
   <label class="search"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><circle cx="7" cy="7" r="4.8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.6 10.6L14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
