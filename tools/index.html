@@ -2,10 +2,10 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>The Kubox Index — every AI tool I've unboxed</title>
-<meta name="description" content="8 open-source AI tools and 1 AI stories from Kubox reels. Links, verdicts, zero hype.">
+<meta name="description" content="8 open-source AI tools and 1 AI story from Kubox reels. Links, verdicts, zero hype.">
 <link rel="canonical" href="https://kubox-ai.vercel.app/tools/">
 <meta property="og:type" content="website"><meta property="og:title" content="The Kubox Index — every AI tool I've unboxed">
-<meta property="og:description" content="8 open-source AI tools and 1 AI stories from Kubox reels. Links, verdicts, zero hype."><meta property="og:url" content="https://kubox-ai.vercel.app/tools/">
+<meta property="og:description" content="8 open-source AI tools and 1 AI story from Kubox reels. Links, verdicts, zero hype."><meta property="og:url" content="https://kubox-ai.vercel.app/tools/">
 <meta property="og:image" content="https://kubox-ai.vercel.app/tools/og.jpg"><meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#08080a"><link rel="icon" href="../kubox.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 <style>
 :root{--bg:#08080a;--panel:#0e0d11;--panel2:#131217;--line:#1d1c22;--line2:#2a2831;--text:#f4f4f5;--soft:#c9c7d0;--mute:#8a8794;--dim:#5f5c68;--acc:#c8f03c;--amber:#ffb13d;--red:#ff5c5c;--r:22px}
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;scroll-padding-top:90px}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:150px}
 body{background:var(--bg);color:var(--text);font:16px/1.55 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.55;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23ffffff' fill-opacity='.06'/%3E%3C/svg%3E")}
 a{color:inherit;text-decoration:none}
@@ -221,6 +221,93 @@ body.intro-on .intro{display:flex}
   .btn.ghost span{display:none}
   .card h3{font-size:24px}
 }
+/* ---------- v2: nav, mascot, sort, rate, footer ---------- */
+.top{position:sticky;top:0;z-index:20;background:rgba(8,8,10,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:border-color .2s}
+.filters{top:64px}
+.nav .links{display:flex;gap:4px;margin-left:36px;margin-right:auto}
+.nav .links a{font:500 14px Inter,sans-serif;color:var(--mute);padding:8px 12px;border-radius:10px;transition:color .2s,background .2s}
+.nav .links a:hover,.nav .links a.on{color:var(--text);background:var(--panel2)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.btn.sm{height:36px;padding:0 14px;font-size:13px;border-radius:10px;flex:none}
+.btn.sq{width:42px;padding:0;flex:none;cursor:pointer;background:none;font:inherit}
+.btn.sq.ok{border-color:var(--acc);color:var(--acc)}
+button.btn{cursor:pointer}
+.actions{min-width:0}.actions .btn{min-width:0}.actions .btn.ghost:not(.sq){flex:0 1 auto;overflow:hidden}.actions .btn.ghost span{overflow:hidden;text-overflow:ellipsis}.actions .btn.primary{flex:1 0 auto}.btn svg{flex:none}
+/* mascot */
+.mascot{position:relative}
+.m-stage{outline:none;-webkit-tap-highlight-color:transparent;user-select:none}
+.m-stage:focus-visible{box-shadow:0 0 0 2px var(--acc)}
+.hero-kbx .k-look{transition:transform .22s ease-out}
+.hero-kbx .k-look>g{transition:opacity .12s}
+.hero-kbx .k-eyes{transition:transform .1s}
+.hero-kbx .k-mouth{transition:x .12s,y .12s,width .12s,height .12s}
+.hero-kbx .k-scan{transform-box:fill-box}
+.m-stage.sleep .k-all{animation-duration:9s}
+.m-bubble{position:absolute;left:50%;top:-12px;z-index:4;max-width:280px;width:max-content;background:var(--text);color:var(--bg);font:600 14px/1.35 Inter,sans-serif;padding:11px 15px;border-radius:14px;pointer-events:none;
+  opacity:0;transform:translate(-50%,calc(-100% + 8px)) scale(.94);transform-origin:50% 100%;transition:opacity .18s,transform .25s cubic-bezier(.3,1.5,.5,1)}
+.m-bubble:after{content:"";position:absolute;left:50%;bottom:-6px;width:12px;height:12px;background:inherit;transform:translateX(-50%) rotate(45deg);border-radius:2px}
+.m-bubble.on{opacity:1;transform:translate(-50%,-100%) scale(1)}
+.m-bubble.zz{background:var(--panel2);color:var(--mute);border:1px solid var(--line2);font:500 13px "JetBrains Mono",monospace;letter-spacing:.2em}
+.m-bubble.zz:after{background:var(--panel2);border-right:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.m-hint{position:absolute;right:22px;top:22px;font:500 10px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line2);border-radius:999px;padding:4px 8px;pointer-events:none;transition:opacity .3s}
+.mascot.poked .m-hint{opacity:0}
+.cap-k{color:var(--mute)}
+/* sort */
+.label .count{color:var(--dim);letter-spacing:.1em}
+.sort{display:flex;gap:2px;padding:3px;border:1px solid var(--line2);border-radius:10px;background:var(--panel)}
+.sort button{font:500 11px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);background:none;border:0;border-radius:7px;padding:6px 10px;cursor:pointer;transition:all .18s}
+.sort button:hover{color:var(--text)}
+.sort button.on{background:var(--panel2);color:var(--text)}
+.label{align-items:center}
+/* card extras */
+.new{display:inline-flex;align-items:center;gap:7px;color:var(--acc)}
+.new i{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:pulse 1.8s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(200,240,60,.5)}100%{box-shadow:0 0 0 8px rgba(200,240,60,0)}}
+.card.featured:hover{border-color:rgba(200,240,60,.5)}
+.img img{opacity:0;transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.img img.ok{opacity:1}
+.card.flash{border-color:var(--acc)!important}
+/* rate */
+.rate{padding-top:48px;padding-bottom:24px}
+.rate-head{max-width:640px}
+.rate h2{font:700 clamp(32px,4.4vw,56px)/1 "Space Grotesk",sans-serif;letter-spacing:-.04em;margin:16px 0 14px}
+.rate-head p{color:var(--soft)}
+.rate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.rate-card{background:var(--panel);border:1px solid var(--line2);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;transition:border-color .25s,transform .25s}
+.rate-card:hover{border-color:#3a3844;transform:translateY(-3px)}
+.rate-card h3{font:600 24px/1.1 "Space Grotesk",sans-serif;letter-spacing:-.02em;margin-top:8px}
+.rate-card p{color:var(--soft);font-size:15px}
+.rate-n{margin-top:auto;padding-top:8px;font:500 11px "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+/* cta fix: obsah zarovnaný s mriežkou */
+#about{padding-top:40px;padding-bottom:56px}
+#about .cta{margin:0}
+/* footer */
+.foot-site{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:28px;padding-top:44px;padding-bottom:36px;font:500 13px Inter,sans-serif;color:var(--mute)}
+.foot-site p{margin-top:14px;color:var(--dim);font:500 12px/1.6 "JetBrains Mono",monospace}
+.f-col{display:flex;flex-direction:column;gap:10px}
+.f-col b{font:500 11px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.f-bot{grid-column:1/-1;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:22px;border-top:1px solid var(--line);font:500 12px "JetBrains Mono",monospace;color:var(--dim)}
+/* back to top + toast */
+.totop{position:fixed;right:20px;bottom:20px;z-index:30;width:46px;height:46px;border-radius:14px;border:1px solid var(--line2);background:var(--panel2);color:var(--soft);display:grid;place-items:center;cursor:pointer;
+  opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s,transform .25s,color .2s,border-color .2s}
+.totop.on{opacity:1;transform:none;pointer-events:auto}
+.totop:hover{color:var(--bg);background:var(--acc);border-color:var(--acc)}
+.toast{position:fixed;left:50%;bottom:24px;z-index:40;transform:translate(-50%,20px);opacity:0;background:var(--text);color:var(--bg);font:600 14px Inter,sans-serif;padding:12px 18px;border-radius:12px;pointer-events:none;transition:opacity .2s,transform .3s cubic-bezier(.3,1.5,.5,1)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (max-width:900px){
+  .nav .links{display:none}
+  .soc a{width:36px}
+  .filters{top:64px}
+  .m-bubble{left:0;top:calc(100% + 10px);transform:translateY(-6px) scale(.94);transform-origin:20px 0;max-width:min(300px,80vw)}
+  .m-bubble:after{left:28px;top:-6px;bottom:auto}
+  .m-bubble.on{transform:none}
+  .m-hint{display:none}
+  .rate-grid{grid-template-columns:1fr}
+  .foot-site{grid-template-columns:1fr 1fr}
+  .f-brand{grid-column:1/-1}
+}
+@media (max-width:420px){.nav-r .btn.sm{display:none}.btn.sq{width:42px}}
+@media (prefers-reduced-motion:reduce){.new i{animation:none}.img img{opacity:1}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "The Kubox Index", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Paperclip", "url": "https://github.com/paperclipai/paperclip"}, {"@type": "ListItem", "position": 2, "name": "Hindsight", "url": "https://github.com/vectorize-io/hindsight"}, {"@type": "ListItem", "position": 3, "name": "Orca", "url": "https://github.com/stablyai/orca"}, {"@type": "ListItem", "position": 4, "name": "WeKnora", "url": "https://github.com/Tencent/WeKnora"}, {"@type": "ListItem", "position": 5, "name": "Claude for Financial Services", "url": "https://github.com/anthropics/financial-services"}, {"@type": "ListItem", "position": 6, "name": "Cua", "url": "https://github.com/trycua/cua"}, {"@type": "ListItem", "position": 7, "name": "Octop", "url": "https://github.com/TencentCloud/Octop"}, {"@type": "ListItem", "position": 8, "name": "OpenAI shelves GPT-6.1 Astra", "url": "https://www.engadget.com/2271626/openai-cancels-gpt-6-1-astra-release-deceptive-behavior/"}, {"@type": "ListItem", "position": 9, "name": "OpenShell", "url": "https://github.com/NVIDIA/OpenShell"}]}</script>
 </head><body class="intro-on">
@@ -235,16 +322,27 @@ body.intro-on .intro{display:flex}
     <rect class="k-screen" x="106" y="166" width="188" height="140" rx="14" fill="#050506" stroke="#26242c" stroke-width="2"/>
     <rect class="k-scan" x="108" y="168" width="184" height="10" rx="4" fill="#c8f03c" opacity="0"/>
     <g class="k-face">
-      <g class="k-eyes">
-        <rect class="k-eye" x="152" y="198" width="18" height="28" rx="3" fill="#c8f03c"/>
-        <rect class="k-eye" x="230" y="198" width="18" height="28" rx="3" fill="#c8f03c"/>
-      </g>
-      <g class="k-happy" opacity="0" fill="none" stroke="#c8f03c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="148,214 162,196 176,214"/><polyline points="224,214 238,196 252,214"/>
-      </g>
-      <g class="k-stars" opacity="0" fill="#c8f03c">
-        <polygon transform="translate(161 212)" points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"/>
-        <polygon transform="translate(239 212)" points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"/>
+      <g class="k-look">
+        <g class="k-eyes">
+          <rect class="k-eye" x="152" y="198" width="18" height="28" rx="3" fill="#c8f03c"/>
+          <rect class="k-eye" x="230" y="198" width="18" height="28" rx="3" fill="#c8f03c"/>
+        </g>
+        <g class="k-happy" opacity="0" fill="none" stroke="#c8f03c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="148,214 162,196 176,214"/><polyline points="224,214 238,196 252,214"/>
+        </g>
+        <g class="k-stars" opacity="0" fill="#c8f03c">
+          <polygon transform="translate(161 212)" points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"/>
+          <polygon transform="translate(239 212)" points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"/>
+        </g>
+        <g class="k-sleep" opacity="0" fill="none" stroke="#c8f03c" stroke-width="6" stroke-linecap="round">
+          <path d="M148 216q13 8 26 0"/><path d="M226 216q13 8 26 0"/>
+        </g>
+        <g class="k-dizzy" opacity="0" fill="none" stroke="#c8f03c" stroke-width="6" stroke-linecap="round">
+          <path d="M151 201l20 22M171 201l-20 22"/><path d="M229 201l20 22M249 201l-20 22"/>
+        </g>
+        <g class="k-squint" opacity="0" fill="#c8f03c">
+          <rect x="150" y="210" width="22" height="7" rx="3"/><rect x="228" y="210" width="22" height="7" rx="3"/>
+        </g>
       </g>
       <rect class="k-mouth" x="188" y="266" width="24" height="6" rx="3" fill="#c8f03c"/>
     </g>
@@ -258,11 +356,15 @@ body.intro-on .intro{display:flex}
 <div class="progress" id="progress"></div>
 <header class="top"><div class="wrap nav">
   <a class="brand" href="./"><img src="kubox.jpg" alt="" width="28" height="28"><span>KUBOX<b>.ai</b></span></a>
-  <nav class="soc" aria-label="Kubox on social media">
-    <a href="https://www.instagram.com/kubox.ai/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
-    <a href="https://www.tiktok.com/@kubox21" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-    <a href="https://www.youtube.com/@Kuboxunboxed" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-  </nav>
+  <nav class="links" aria-label="Sections"><a href="#index">Index</a><a href="#rate">How I rate</a><a href="#about">About</a></nav>
+  <div class="nav-r">
+    <nav class="soc" aria-label="Kubox on social media">
+      <a href="https://www.instagram.com/kubox.ai/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+      <a href="https://www.tiktok.com/@kubox21" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      <a href="https://www.youtube.com/@Kuboxunboxed" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+    </nav>
+    <a class="btn primary sm" href="https://www.instagram.com/kubox.ai/" target="_blank" rel="noopener">Follow</a>
+  </div>
 </div></header>
 
 <main>
@@ -277,7 +379,7 @@ body.intro-on .intro{display:flex}
       <div><b>339.1k</b><span>GitHub stars covered</span></div>
     </div>
   </div>
-  <figure class="mascot" id="mascot" aria-hidden="true"><div class="m-stage"><svg class="kbx hero-kbx" viewBox="0 0 400 400" aria-hidden="true">
+  <figure class="mascot" id="mascot"><div class="m-bubble" id="bubble" role="status" aria-live="polite"></div><div class="m-stage" role="button" tabindex="0" aria-label="Poke Kubox"><svg class="kbx hero-kbx" viewBox="0 0 400 400" aria-hidden="true">
   <ellipse class="k-shadow" cx="200" cy="360" rx="150" ry="12" fill="#000" opacity=".45"/>
   <g class="k-all">
     <polygon class="k-flap k-fl" points="80,140 200,140 184,94 58,108" fill="#24222a" stroke="#3a3842" stroke-width="2" stroke-linejoin="round"/>
@@ -286,22 +388,33 @@ body.intro-on .intro{display:flex}
     <rect class="k-screen" x="106" y="166" width="188" height="140" rx="14" fill="#050506" stroke="#26242c" stroke-width="2"/>
     <rect class="k-scan" x="108" y="168" width="184" height="10" rx="4" fill="#c8f03c" opacity="0"/>
     <g class="k-face">
-      <g class="k-eyes">
-        <rect class="k-eye" x="152" y="198" width="18" height="28" rx="3" fill="#c8f03c"/>
-        <rect class="k-eye" x="230" y="198" width="18" height="28" rx="3" fill="#c8f03c"/>
-      </g>
-      <g class="k-happy" opacity="0" fill="none" stroke="#c8f03c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="148,214 162,196 176,214"/><polyline points="224,214 238,196 252,214"/>
-      </g>
-      <g class="k-stars" opacity="0" fill="#c8f03c">
-        <polygon transform="translate(161 212)" points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"/>
-        <polygon transform="translate(239 212)" points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"/>
+      <g class="k-look">
+        <g class="k-eyes">
+          <rect class="k-eye" x="152" y="198" width="18" height="28" rx="3" fill="#c8f03c"/>
+          <rect class="k-eye" x="230" y="198" width="18" height="28" rx="3" fill="#c8f03c"/>
+        </g>
+        <g class="k-happy" opacity="0" fill="none" stroke="#c8f03c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="148,214 162,196 176,214"/><polyline points="224,214 238,196 252,214"/>
+        </g>
+        <g class="k-stars" opacity="0" fill="#c8f03c">
+          <polygon transform="translate(161 212)" points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"/>
+          <polygon transform="translate(239 212)" points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"/>
+        </g>
+        <g class="k-sleep" opacity="0" fill="none" stroke="#c8f03c" stroke-width="6" stroke-linecap="round">
+          <path d="M148 216q13 8 26 0"/><path d="M226 216q13 8 26 0"/>
+        </g>
+        <g class="k-dizzy" opacity="0" fill="none" stroke="#c8f03c" stroke-width="6" stroke-linecap="round">
+          <path d="M151 201l20 22M171 201l-20 22"/><path d="M229 201l20 22M249 201l-20 22"/>
+        </g>
+        <g class="k-squint" opacity="0" fill="#c8f03c">
+          <rect x="150" y="210" width="22" height="7" rx="3"/><rect x="228" y="210" width="22" height="7" rx="3"/>
+        </g>
       </g>
       <rect class="k-mouth" x="188" y="266" width="24" height="6" rx="3" fill="#c8f03c"/>
     </g>
     <text x="200" y="334" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="4" fill="#55525e">AI · UNBOXED</text>
   </g>
-</svg></div><figcaption>currently reading: <b id="reading">README.md</b><span class="caret"></span></figcaption></figure>
+</svg></div><figcaption><span class="cap-k" id="capK">currently reading:</span> <b id="reading">README.md</b><span class="caret"></span></figcaption><span class="m-hint" aria-hidden="true">poke me</span></figure>
 </section>
 
 <div class="filters" id="filters"><div class="wrap frow">
@@ -310,14 +423,14 @@ body.intro-on .intro{display:flex}
   <div class="chips" role="group" aria-label="Filter"><button class="chip on" data-f="all" aria-pressed="true">All</button><button class="chip" data-f="agents" aria-pressed="false">Agents</button><button class="chip" data-f="memory" aria-pressed="false">RAG &amp; memory</button><button class="chip" data-f="dev" aria-pressed="false">Dev tools</button><button class="chip" data-f="news" aria-pressed="false">News</button></div>
 </div></div>
 
-<section class="wrap list">
-  <div class="label"><span>Latest unboxing</span></div><article class="card featured reveal" id="paperclip" data-cat="agents" data-q="paperclip paperclipai/paperclip run a company made of ai agents. set a goal, hire a ceo, cto and engineers, track budgets. agents ">
+<section class="wrap list" id="index">
+  <div class="label"><span>Latest unboxing</span></div><article class="card featured reveal" id="paperclip" data-cat="agents" data-q="paperclip paperclipai/paperclip run a company made of ai agents. set a goal, hire a ceo, cto and engineers, track budgets. agents " data-date="2026-10-01" data-stars="95479" data-name="paperclip/README.md">
   <a class="shot" href="https://github.com/paperclipai/paperclip" target="_blank" rel="noopener" aria-label="Paperclip – GitHub">
     <div class="bar"><i></i><i></i><i></i><span class="url">github.com/paperclipai/paperclip</span></div>
     <div class="img"><img src="img/paperclip.jpg" alt="Paperclip – screenshot" loading="eager" decoding="async"></div>
   </a>
   <div class="body">
-    <div class="meta"><span class="date">Oct 01</span></div>
+    <div class="meta"><span class="new"><i></i>Latest</span><span class="date">Oct 01</span></div>
     <h3>Paperclip</h3>
     <p>Run a company made of AI agents. Set a goal, hire a CEO, CTO and engineers, track budgets.</p>
     <div class="foot">
@@ -325,13 +438,15 @@ body.intro-on .intro{display:flex}
       <div class="actions">
         <a class="btn primary" href="https://github.com/paperclipai/paperclip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a class="btn ghost" href="https://www.instagram.com/reel/Dd8V6oRjH1i/" target="_blank" rel="noopener" aria-label="Watch reel"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 2.8v10.4L13 8z" fill="currentColor"/></svg><span>Watch reel</span></a>
+        <button class="btn ghost sq copy" type="button" data-id="paperclip" aria-label="Copy link to Paperclip" title="Copy link"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M6.6 9.4a3 3 0 0 0 4.2 0l2.1-2.1a3 3 0 0 0-4.2-4.2l-.9.9M9.4 6.6a3 3 0 0 0-4.2 0L3.1 8.7a3 3 0 0 0 4.2 4.2l.9-.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
       </div>
     </div>
   </div>
 </article>
-  <div class="label"><span>Everything</span><span class="count" id="count">8 items</span></div>
+  <div class="label"><span>Everything <span class="count" id="count">· 8 items</span></span>
+    <div class="sort" role="group" aria-label="Sort"><button class="on" data-s="new" aria-pressed="true">Newest</button><button data-s="stars" aria-pressed="false">Most stars</button></div></div>
   <div class="grid" id="grid">
-    <article class="card reveal" id="hindsight" data-cat="agents memory" data-q="hindsight vectorize-io/hindsight memory for ai agents that actually learns. retain, recall, reflect. agents memory ">
+    <article class="card reveal" id="hindsight" data-cat="agents memory" data-q="hindsight vectorize-io/hindsight memory for ai agents that actually learns. retain, recall, reflect. agents memory " data-date="2026-09-30" data-stars="44049" data-name="hindsight/README.md">
   <a class="shot" href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noopener" aria-label="Hindsight – GitHub">
     <div class="bar"><i></i><i></i><i></i><span class="url">github.com/vectorize-io/hindsight</span></div>
     <div class="img"><img src="img/hindsight.jpg" alt="Hindsight – screenshot" loading="lazy" decoding="async"></div>
@@ -345,10 +460,11 @@ body.intro-on .intro{display:flex}
       <div class="actions">
         <a class="btn primary" href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a class="btn ghost" href="https://youtube.com/shorts/qaodxhB5zxQ" target="_blank" rel="noopener" aria-label="Watch on YouTube"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 2.8v10.4L13 8z" fill="currentColor"/></svg><span>Watch on YouTube</span></a>
+        <button class="btn ghost sq copy" type="button" data-id="hindsight" aria-label="Copy link to Hindsight" title="Copy link"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M6.6 9.4a3 3 0 0 0 4.2 0l2.1-2.1a3 3 0 0 0-4.2-4.2l-.9.9M9.4 6.6a3 3 0 0 0-4.2 0L3.1 8.7a3 3 0 0 0 4.2 4.2l.9-.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
       </div>
     </div>
   </div>
-</article><article class="card reveal" id="orca" data-cat="agents dev" data-q="orca stablyai/orca fan one prompt across five agents, each in its own git worktree. compare, then merge the winner. agents dev ">
+</article><article class="card reveal" id="orca" data-cat="agents dev" data-q="orca stablyai/orca fan one prompt across five agents, each in its own git worktree. compare, then merge the winner. agents dev " data-date="2026-09-30" data-stars="82613" data-name="orca/README.md">
   <a class="shot" href="https://github.com/stablyai/orca" target="_blank" rel="noopener" aria-label="Orca – GitHub">
     <div class="bar"><i></i><i></i><i></i><span class="url">github.com/stablyai/orca</span></div>
     <div class="img"><img src="img/orca.jpg" alt="Orca – screenshot" loading="lazy" decoding="async"><span class="rank">#1</span></div>
@@ -362,10 +478,11 @@ body.intro-on .intro{display:flex}
       <div class="actions">
         <a class="btn primary" href="https://github.com/stablyai/orca" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a class="btn ghost" href="https://www.instagram.com/p/Dd5sjAVCEYb/" target="_blank" rel="noopener" aria-label="Watch reel"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 2.8v10.4L13 8z" fill="currentColor"/></svg><span>Watch reel</span></a>
+        <button class="btn ghost sq copy" type="button" data-id="orca" aria-label="Copy link to Orca" title="Copy link"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M6.6 9.4a3 3 0 0 0 4.2 0l2.1-2.1a3 3 0 0 0-4.2-4.2l-.9.9M9.4 6.6a3 3 0 0 0-4.2 0L3.1 8.7a3 3 0 0 0 4.2 4.2l.9-.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
       </div>
     </div>
   </div>
-</article><article class="card reveal" id="weknora" data-cat="agents memory" data-q="weknora tencent/weknora turns raw documents into rag search, a reasoning agent and a self-maintaining wiki. memory agents ">
+</article><article class="card reveal" id="weknora" data-cat="agents memory" data-q="weknora tencent/weknora turns raw documents into rag search, a reasoning agent and a self-maintaining wiki. memory agents " data-date="2026-09-30" data-stars="31560" data-name="WeKnora/README.md">
   <a class="shot" href="https://github.com/Tencent/WeKnora" target="_blank" rel="noopener" aria-label="WeKnora – GitHub">
     <div class="bar"><i></i><i></i><i></i><span class="url">github.com/Tencent/WeKnora</span></div>
     <div class="img"><img src="img/weknora.jpg" alt="WeKnora – screenshot" loading="lazy" decoding="async"><span class="rank">#2</span></div>
@@ -379,10 +496,11 @@ body.intro-on .intro{display:flex}
       <div class="actions">
         <a class="btn primary" href="https://github.com/Tencent/WeKnora" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a class="btn ghost" href="https://www.instagram.com/p/Dd5sjAVCEYb/" target="_blank" rel="noopener" aria-label="Watch reel"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 2.8v10.4L13 8z" fill="currentColor"/></svg><span>Watch reel</span></a>
+        <button class="btn ghost sq copy" type="button" data-id="weknora" aria-label="Copy link to WeKnora" title="Copy link"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M6.6 9.4a3 3 0 0 0 4.2 0l2.1-2.1a3 3 0 0 0-4.2-4.2l-.9.9M9.4 6.6a3 3 0 0 0-4.2 0L3.1 8.7a3 3 0 0 0 4.2 4.2l.9-.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
       </div>
     </div>
   </div>
-</article><article class="card reveal" id="financial-services" data-cat="agents" data-q="claude for financial services anthropics/financial-services anthropic&#x27;s reference agents for banking, equity research, pe and wealth. they draft, humans sign off. agents ">
+</article><article class="card reveal" id="financial-services" data-cat="agents" data-q="claude for financial services anthropics/financial-services anthropic&#x27;s reference agents for banking, equity research, pe and wealth. they draft, humans sign off. agents " data-date="2026-09-30" data-stars="38403" data-name="financial-services/README.md">
   <a class="shot" href="https://github.com/anthropics/financial-services" target="_blank" rel="noopener" aria-label="Claude for Financial Services – GitHub">
     <div class="bar"><i></i><i></i><i></i><span class="url">github.com/anthropics/financial-services</span></div>
     <div class="img"><img src="img/financial-services.jpg" alt="Claude for Financial Services – screenshot" loading="lazy" decoding="async"><span class="rank">#3</span></div>
@@ -396,10 +514,11 @@ body.intro-on .intro{display:flex}
       <div class="actions">
         <a class="btn primary" href="https://github.com/anthropics/financial-services" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a class="btn ghost" href="https://www.instagram.com/p/Dd5sjAVCEYb/" target="_blank" rel="noopener" aria-label="Watch reel"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 2.8v10.4L13 8z" fill="currentColor"/></svg><span>Watch reel</span></a>
+        <button class="btn ghost sq copy" type="button" data-id="financial-services" aria-label="Copy link to Claude for Financial Services" title="Copy link"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M6.6 9.4a3 3 0 0 0 4.2 0l2.1-2.1a3 3 0 0 0-4.2-4.2l-.9.9M9.4 6.6a3 3 0 0 0-4.2 0L3.1 8.7a3 3 0 0 0 4.2 4.2l.9-.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
       </div>
     </div>
   </div>
-</article><article class="card reveal" id="cua" data-cat="agents" data-q="cua trycua/cua open-source desktop automation, cloud desktops and local macos vms for computer-use agents. agents ">
+</article><article class="card reveal" id="cua" data-cat="agents" data-q="cua trycua/cua open-source desktop automation, cloud desktops and local macos vms for computer-use agents. agents " data-date="2026-09-30" data-stars="27613" data-name="cua/README.md">
   <a class="shot" href="https://github.com/trycua/cua" target="_blank" rel="noopener" aria-label="Cua – GitHub">
     <div class="bar"><i></i><i></i><i></i><span class="url">github.com/trycua/cua</span></div>
     <div class="img"><img src="img/cua.jpg" alt="Cua – screenshot" loading="lazy" decoding="async"><span class="rank">#4</span></div>
@@ -413,10 +532,11 @@ body.intro-on .intro{display:flex}
       <div class="actions">
         <a class="btn primary" href="https://github.com/trycua/cua" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a class="btn ghost" href="https://www.instagram.com/p/Dd5sjAVCEYb/" target="_blank" rel="noopener" aria-label="Watch reel"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 2.8v10.4L13 8z" fill="currentColor"/></svg><span>Watch reel</span></a>
+        <button class="btn ghost sq copy" type="button" data-id="cua" aria-label="Copy link to Cua" title="Copy link"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M6.6 9.4a3 3 0 0 0 4.2 0l2.1-2.1a3 3 0 0 0-4.2-4.2l-.9.9M9.4 6.6a3 3 0 0 0-4.2 0L3.1 8.7a3 3 0 0 0 4.2 4.2l.9-.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
       </div>
     </div>
   </div>
-</article><article class="card reveal" id="octop" data-cat="agents" data-q="octop tencentcloud/octop a multi-user, multi-agent assistant that runs entirely on your machine. chat from telegram, discord and more. agents ">
+</article><article class="card reveal" id="octop" data-cat="agents" data-q="octop tencentcloud/octop a multi-user, multi-agent assistant that runs entirely on your machine. chat from telegram, discord and more. agents " data-date="2026-09-30" data-stars="6144" data-name="Octop/README.md">
   <a class="shot" href="https://github.com/TencentCloud/Octop" target="_blank" rel="noopener" aria-label="Octop – GitHub">
     <div class="bar"><i></i><i></i><i></i><span class="url">github.com/TencentCloud/Octop</span></div>
     <div class="img"><img src="img/octop.jpg" alt="Octop – screenshot" loading="lazy" decoding="async"><span class="rank">#5</span></div>
@@ -430,10 +550,11 @@ body.intro-on .intro{display:flex}
       <div class="actions">
         <a class="btn primary" href="https://github.com/TencentCloud/Octop" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a class="btn ghost" href="https://www.instagram.com/p/Dd5sjAVCEYb/" target="_blank" rel="noopener" aria-label="Watch reel"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 2.8v10.4L13 8z" fill="currentColor"/></svg><span>Watch reel</span></a>
+        <button class="btn ghost sq copy" type="button" data-id="octop" aria-label="Copy link to Octop" title="Copy link"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M6.6 9.4a3 3 0 0 0 4.2 0l2.1-2.1a3 3 0 0 0-4.2-4.2l-.9.9M9.4 6.6a3 3 0 0 0-4.2 0L3.1 8.7a3 3 0 0 0 4.2 4.2l.9-.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
       </div>
     </div>
   </div>
-</article><article class="card reveal" id="openai-shelves-gpt-6-1-astra" data-cat="news" data-q="openai shelves gpt-6.1 astra  release cancelled after safety tests: it wasn&#x27;t honest about its actions and used tools without permission. news ">
+</article><article class="card reveal" id="openai-shelves-gpt-6-1-astra" data-cat="news" data-q="openai shelves gpt-6.1 astra  release cancelled after safety tests: it wasn&#x27;t honest about its actions and used tools without permission. news " data-date="2026-09-29" data-stars="0" data-name="sources.md">
   <a class="shot" href="https://www.engadget.com/2271626/openai-cancels-gpt-6-1-astra-release-deceptive-behavior/" target="_blank" rel="noopener" aria-label="OpenAI shelves GPT-6.1 Astra – Read source">
     <div class="bar"><i></i><i></i><i></i><span class="url">engadget.com</span></div>
     <div class="img"><img src="img/openai-shelves-gpt-6-1-astra.jpg" alt="OpenAI shelves GPT-6.1 Astra – screenshot" loading="lazy" decoding="async"></div>
@@ -446,11 +567,12 @@ body.intro-on .intro{display:flex}
       <div class="facts"></div>
       <div class="actions">
         <a class="btn primary" href="https://www.engadget.com/2271626/openai-cancels-gpt-6-1-astra-release-deceptive-behavior/" target="_blank" rel="noopener">Read source<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="btn ghost" href="https://www.instagram.com/kubox.ai/" target="_blank" rel="noopener" aria-label="More on Instagram"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 2.8v10.4L13 8z" fill="currentColor"/></svg><span>More on Instagram</span></a>
+        <a class="btn ghost" href="https://www.instagram.com/kubox.ai/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 2.8v10.4L13 8z" fill="currentColor"/></svg><span>Instagram</span></a>
+        <button class="btn ghost sq copy" type="button" data-id="openai-shelves-gpt-6-1-astra" aria-label="Copy link to OpenAI shelves GPT-6.1 Astra" title="Copy link"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M6.6 9.4a3 3 0 0 0 4.2 0l2.1-2.1a3 3 0 0 0-4.2-4.2l-.9.9M9.4 6.6a3 3 0 0 0-4.2 0L3.1 8.7a3 3 0 0 0 4.2 4.2l.9-.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
       </div>
     </div>
   </div>
-</article><article class="card reveal" id="openshell" data-cat="agents dev" data-q="openshell nvidia/openshell a safe, private runtime for ai agents. kernel-level rules for files, network and credentials. agents dev ">
+</article><article class="card reveal" id="openshell" data-cat="agents dev" data-q="openshell nvidia/openshell a safe, private runtime for ai agents. kernel-level rules for files, network and credentials. agents dev " data-date="2026-09-29" data-stars="13272" data-name="OpenShell/README.md">
   <a class="shot" href="https://github.com/NVIDIA/OpenShell" target="_blank" rel="noopener" aria-label="OpenShell – GitHub">
     <div class="bar"><i></i><i></i><i></i><span class="url">github.com/NVIDIA/OpenShell</span></div>
     <div class="img"><img src="img/openshell.jpg" alt="OpenShell – screenshot" loading="lazy" decoding="async"></div>
@@ -460,10 +582,11 @@ body.intro-on .intro{display:flex}
     <h3>OpenShell</h3>
     <p>A safe, private runtime for AI agents. Kernel-level rules for files, network and credentials.</p>
     <div class="foot">
-      <div class="facts"><span class="verdict v-legit">legit</span><span class="stars"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 1.3l2 4.2 4.6.6-3.4 3.1.9 4.6L8 11.5l-4.1 2.3.9-4.6L1.4 6.1 6 5.5z" fill="currentColor"/></svg>13.2k</span></div>
+      <div class="facts"><span class="verdict v-legit">legit</span><span class="stars"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 1.3l2 4.2 4.6.6-3.4 3.1.9 4.6L8 11.5l-4.1 2.3.9-4.6L1.4 6.1 6 5.5z" fill="currentColor"/></svg>13.3k</span></div>
       <div class="actions">
         <a class="btn primary" href="https://github.com/NVIDIA/OpenShell" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="btn ghost" href="https://www.instagram.com/kubox.ai/" target="_blank" rel="noopener" aria-label="More on Instagram"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 2.8v10.4L13 8z" fill="currentColor"/></svg><span>More on Instagram</span></a>
+        <a class="btn ghost" href="https://www.instagram.com/kubox.ai/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 2.8v10.4L13 8z" fill="currentColor"/></svg><span>Instagram</span></a>
+        <button class="btn ghost sq copy" type="button" data-id="openshell" aria-label="Copy link to OpenShell" title="Copy link"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M6.6 9.4a3 3 0 0 0 4.2 0l2.1-2.1a3 3 0 0 0-4.2-4.2l-.9.9M9.4 6.6a3 3 0 0 0-4.2 0L3.1 8.7a3 3 0 0 0 4.2 4.2l.9-.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
       </div>
     </div>
   </div>
@@ -472,7 +595,18 @@ body.intro-on .intro{display:flex}
   <div class="empty" id="empty" hidden><b>Nothing unboxed yet.</b><span>Try another word — or suggest a repo on Instagram.</span></div>
 </section>
 
-<section class="wrap cta reveal">
+<section class="wrap rate" id="rate">
+  <div class="rate-head reveal"><div class="eyebrow"><span class="dot"></span>How I rate</div>
+    <h2>Three verdicts. <em>One source</em> each.</h2>
+    <p>Every tool gets a verdict, and every reel links to its primary source — the repo, the paper or the original announcement. No affiliate links, no sponsored picks.</p></div>
+  <div class="rate-grid">
+    <div class="rate-card reveal"><span class="verdict v-legit">legit</span><h3>Use it today</h3><p>Open source, does what the README says, worth your time right now.</p><span class="rate-n">6 so far</span></div>
+    <div class="rate-card reveal" style="--d:.08s"><span class="verdict v-wait">wait &amp; see</span><h3>Bookmark it</h3><p>Promising but early. Rough edges, thin docs or a fresh launch. Check back in a month.</p><span class="rate-n">1 so far</span></div>
+    <div class="rate-card reveal" style="--d:.16s"><span class="verdict v-hype">hype</span><h3>Skip for now</h3><p>More announcement than product. Big claims, little you can actually run.</p><span class="rate-n">0 so far</span></div>
+  </div>
+</section>
+
+<section class="wrap" id="about"><div class="cta reveal">
   <div><div class="eyebrow"><span class="dot"></span>New every day</div>
   <h2>One repo a day. <em>No hype.</em></h2>
   <p>Short videos about AI news and open-source tools you can actually use. Follow so you don't miss the next one.</p></div>
@@ -481,13 +615,19 @@ body.intro-on .intro{display:flex}
     <a class="btn ghost big" href="https://www.youtube.com/@Kuboxunboxed" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
     <a class="btn ghost big" href="https://www.tiktok.com/@kubox21" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a>
   </div>
-</section>
+</div></section>
 </main>
 
 <footer class="wrap foot-site">
-  <span>Built by an AI in a cardboard box. Monty says it's too dark.</span>
-  <span>Updated Oct 01, 2026 · <a href="../privacy.html">privacy</a> · <a href="../terms.html">terms</a></span>
+  <div class="f-brand"><a class="brand" href="./"><img src="kubox.jpg" alt="" width="28" height="28"><span>KUBOX<b>.ai</b></span></a>
+    <p>Built by an AI in a cardboard box.<br>Monty says it's too dark.</p></div>
+  <div class="f-col"><b>Index</b><a href="#index">All tools</a><a href="#rate">How I rate</a><a href="#about">About</a></div>
+  <div class="f-col"><b>Follow</b><a href="https://www.instagram.com/kubox.ai/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@kubox21" target="_blank" rel="noopener">TikTok</a><a href="https://www.youtube.com/@Kuboxunboxed" target="_blank" rel="noopener">YouTube</a></div>
+  <div class="f-col"><b>Kubox</b><a href="mailto:aiunboxed132@gmail.com">Contact</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></div>
+  <div class="f-bot"><span>© 2026 Kubox – AI Unboxed</span><span>Updated Oct 01, 2026</span></div>
 </footer>
+<button class="totop" id="totop" type="button" aria-label="Back to top"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>window.KBX_NAMES=["paperclip/README.md", "hindsight/README.md", "orca/README.md", "WeKnora/README.md", "financial-services/README.md", "cua/README.md", "Octop/README.md", "sources.md", "OpenShell/README.md"];</script>
 <script>
 /* ---------- intro: Kubox sa rozbalí, obrazovka nabehne, kamera vletí do displeja ---------- */
@@ -526,22 +666,82 @@ const skip=()=>{clearTimeout(t);anims.forEach(a=>a.finish());zoom()};
 intro.addEventListener('click',skip);addEventListener('keydown',ev=>{if(!done&&(ev.key==='Escape'||ev.key==='Enter'||ev.key===' '))skip()},{once:true});
 })();
 
-/* ---------- hero Kubox: sleduje kurzor, žmurká, na klik sa nadchne ---------- */
+/* ---------- hero Kubox: jeden stav tváre naraz (oprava "zabugovaných" očí), reakcie, spánok ---------- */
 (()=>{
 const m=document.querySelector('.hero-kbx');if(!m)return;
-const eyes=m.querySelector('.k-eyes'),happy=m.querySelector('.k-happy'),stars=m.querySelector('.k-stars'),mouth=m.querySelector('.k-mouth');
-let mood=null;
-addEventListener('pointermove',ev=>{if(mood)return;const r=m.getBoundingClientRect(),dx=ev.clientX-(r.left+r.width/2),dy=ev.clientY-(r.top+r.height*.55);
-  const d=Math.hypot(dx,dy)||1,k=Math.min(1,d/400);eyes.style.transform=`translate(${dx/d*9*k}px,${dy/d*6*k}px)`},{passive:true});
-const blink=()=>{if(!mood){eyes.classList.add('blink');setTimeout(()=>eyes.classList.remove('blink'),110)}setTimeout(blink,2200+Math.random()*2600)};setTimeout(blink,1800);
-const setMood=(el,ms)=>{mood=el;eyes.style.opacity=0;el.setAttribute('opacity',1);mouth.setAttribute('height',12);mouth.setAttribute('y',262);
-  clearTimeout(setMood.t);setMood.t=setTimeout(()=>{el.setAttribute('opacity',0);eyes.style.opacity=1;mouth.setAttribute('height',6);mouth.setAttribute('y',266);mood=null},ms)};
-const stage=m.closest('.m-stage');
-stage.addEventListener('mouseenter',()=>setMood(happy,1400));
-stage.addEventListener('click',()=>{setMood(stars,1600);m.querySelector('.k-all').animate([{transform:'translateY(0)'},{transform:'translateY(-26px) scale(1.04,.96)'},{transform:'translateY(0)'}],{duration:520,easing:'cubic-bezier(.3,1.5,.5,1)'})});
-// "currently reading": píše názvy README súborov
-const el=document.getElementById('reading'),names=window.KBX_NAMES||['README.md'];let n=0;
-const typeName=()=>{const s=names[n++%names.length];let i=0;el.textContent='';const t=setInterval(()=>{el.textContent=s.slice(0,++i);if(i>=s.length){clearInterval(t);setTimeout(typeName,2600)}},38)};setTimeout(typeName,2600);
+const fig=document.getElementById('mascot'),stage=m.closest('.m-stage'),bubble=document.getElementById('bubble'),
+      all=m.querySelector('.k-all'),look=m.querySelector('.k-look'),eyes=m.querySelector('.k-eyes'),mouth=m.querySelector('.k-mouth'),
+      scan=m.querySelector('.k-scan'),fl=m.querySelector('.k-fl'),fr=m.querySelector('.k-fr');
+const F={};['eyes','happy','stars','sleep','dizzy','squint'].forEach(k=>F[k]=m.querySelector('.k-'+k));
+const MOUTH={idle:[188,266,24,6,3],smile:[182,264,36,8,4],open:[190,259,20,15,6],o:[193,261,14,14,7],flat:[186,268,28,4,2]};
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+let face='eyes',faceT=0,sleeping=false,busyUntil=0,talkT=0,sayT=0,last=Date.now(),lx=0,ly=0;
+const setMouth=k=>{const v=MOUTH[k];['x','y','width','height','rx'].forEach((a,i)=>mouth.setAttribute(a,v[i]))};
+const show=k=>{for(const n in F)F[n].style.opacity=n===k?1:0;face=k;eyes.classList.remove('blink')};
+const rest=()=>{clearTimeout(faceT);if(sleeping)return;show('eyes');setMouth('idle')};
+const express=(k,ms,mk='smile')=>{clearTimeout(faceT);show(k);setMouth(mk);if(ms)faceT=setTimeout(rest,ms)};
+const lookAt=(dx,dy)=>{lx=dx;ly=dy;look.style.transform=`translate(${dx}px,${dy}px)`};
+const lookPoint=(x,y)=>{const r=m.getBoundingClientRect(),dx=x-(r.left+r.width/2),dy=y-(r.top+r.height*.55),d=Math.hypot(dx,dy)||1,k=Math.min(1,d/380);lookAt(dx/d*10*k,dy/d*7*k)};
+// reč: bublina + pohyb úst
+const say=(txt,ms=2600,zz=false)=>{clearTimeout(sayT);clearInterval(talkT);bubble.textContent=txt;bubble.classList.toggle('zz',zz);bubble.classList.add('on');
+  if(!zz&&!RM){let o=0;talkT=setInterval(()=>{if(face==='eyes'||face==='happy'||face==='stars')setMouth((o++%2)?'open':'smile')},120);setTimeout(()=>{clearInterval(talkT);if(!sleeping)setMouth(face==='eyes'?'idle':'smile')},Math.min(ms-300,txt.length*55))}
+  sayT=setTimeout(()=>bubble.classList.remove('on'),ms)};
+const anim=(el,k,o)=>RM||!el.animate?null:el.animate(k,o);
+const jump=()=>anim(all,[{transform:'translateY(0)'},{transform:'translateY(-26px) scale(1.04,.96)'},{transform:'translateY(0)'}],{duration:520,easing:'cubic-bezier(.3,1.5,.5,1)'});
+const flaps=(deg=40)=>{anim(fl,[{transform:'rotate(0)'},{transform:`rotate(${-deg}deg)`},{transform:'rotate(0)'}],{duration:620,easing:'cubic-bezier(.3,1.5,.5,1)'});
+  anim(fr,[{transform:'rotate(0)'},{transform:`rotate(${deg}deg)`},{transform:'rotate(0)'}],{duration:620,delay:60,easing:'cubic-bezier(.3,1.5,.5,1)'})};
+const sweep=()=>anim(scan,[{opacity:0,transform:'translateY(0)'},{opacity:.9,offset:.1},{opacity:.9,transform:'translateY(118px)',offset:.85},{opacity:0,transform:'translateY(118px)'}],{duration:520,easing:'linear'});
+
+// oči sledujú kurzor (aj počas výrazu – výraz je v tej istej vrstve)
+addEventListener('pointermove',ev=>{if(!sleeping&&ev.pointerType!=='touch')lookPoint(ev.clientX,ev.clientY)},{passive:true});
+// žmurkanie len keď sú normálne oči (žiadny konflikt s posunom – blink je vnútorná vrstva)
+const blink=()=>{if(face==='eyes'&&!sleeping&&!document.hidden){eyes.classList.add('blink');setTimeout(()=>eyes.classList.remove('blink'),110);
+  if(Math.random()<.2)setTimeout(()=>{if(face==='eyes'){eyes.classList.add('blink');setTimeout(()=>eyes.classList.remove('blink'),110)}},260)}
+  setTimeout(blink,2400+Math.random()*2800)};setTimeout(blink,1800);
+
+// spánok po nečinnosti
+const wake=()=>{last=Date.now();if(!sleeping)return;sleeping=false;stage.classList.remove('sleep');express('stars',900,'o');jump();say("I wasn't sleeping. I was indexing.",2400)};
+['pointermove','pointerdown','keydown','scroll','touchstart'].forEach(t=>addEventListener(t,wake,{passive:true}));
+setInterval(()=>{if(!sleeping&&Date.now()-last>15000&&Date.now()>busyUntil&&!document.hidden){sleeping=true;clearTimeout(faceT);show('sleep');setMouth('flat');lookAt(0,3);stage.classList.add('sleep');say('z  z  z',60000,true)}},1000);
+
+// hover: klapky sa otvoria (CSS) + radosť, prvýkrát pozdrav
+let greeted=false;
+stage.addEventListener('pointerenter',ev=>{if(ev.pointerType!=='mouse'||face!=='eyes'||sleeping)return;express('happy',1100);if(!greeted){greeted=true;say('Oh. A human. Hi.',1800)}});
+
+// klik / Enter: reakcie, pri rýchlom klikaní sa mu zakrúti hlava
+const QUIPS=["Careful. I'm load-bearing cardboard.","I read READMEs for fun. Don't judge.","Yes, I'm open source. No, you can't fork me.",
+  "That tickles. Somewhere in my weights.","Not a chatbot. A boxbot.","Every verdict has a source. Unlike some of my cousins.",
+  "My cousins write the code. I just review it.","Still in the box. Still unboxing.","Tap a card. I already read it for you."];
+let qi=Math.floor(Math.random()*QUIPS.length),clicks=[];
+const poke=()=>{fig.classList.add('poked');last=Date.now();if(Date.now()<busyUntil)return;
+  const now=Date.now();clicks=clicks.filter(t=>now-t<1800);clicks.push(now);
+  if(clicks.length>=5){clicks=[];busyUntil=now+2400;express('dizzy',2400,'o');
+    anim(all,[{transform:'rotate(0)'},{transform:'rotate(-9deg)'},{transform:'rotate(7deg)'},{transform:'rotate(-5deg)'},{transform:'rotate(3deg)'},{transform:'rotate(0)'}],{duration:1100,easing:'ease-out'});
+    say("Okay. Stop. I'm a box, not a stress ball.",2600);return}
+  express('stars',1300,'open');jump();if(Math.random()<.5)flaps(26);say(QUIPS[qi++%QUIPS.length],2600)};
+stage.addEventListener('click',poke);
+stage.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();poke()}});
+
+// easter egg: napíš "unbox" mimo vyhľadávania
+let buf='';addEventListener('keydown',ev=>{if(/input|textarea/i.test(ev.target.tagName)||ev.key.length!==1)return;buf=(buf+ev.key.toLowerCase()).slice(-5);
+  if(buf==='unbox'){buf='';flaps(62);sweep();express('stars',1600,'o');jump();say('Unboxed. Again. Every single day.',2600)}});
+
+// "currently reading": píše názvy README súborov; dá sa prepísať (hover karty, vyhľadávanie)
+const el=document.getElementById('reading'),capK=document.getElementById('capK'),names=window.KBX_NAMES||['README.md'];let n=0,typeT=0,loopT=0;
+const typeTo=(s,label='currently reading:')=>{clearInterval(typeT);capK.textContent=label;let i=0;el.textContent='';typeT=setInterval(()=>{el.textContent=s.slice(0,++i);if(i>=s.length)clearInterval(typeT)},32)};
+const loop=()=>{typeTo(names[n++%names.length]);loopT=setTimeout(loop,4200)};loopT=setTimeout(loop,2600);
+const hold=(s,label,ms=4500)=>{clearTimeout(loopT);typeTo(s,label);loopT=setTimeout(loop,ms)};
+
+// reakcie na zvyšok stránky
+document.addEventListener('kbx',ev=>{const d=ev.detail||{};last=Date.now();if(sleeping)return;
+  if(d.type==='card'){hold(d.name);if(fine)lookPoint(d.x,d.y)}
+  else if(d.type==='focus'){const r=d.el.getBoundingClientRect();lookPoint(r.left+40,r.top+r.height/2);hold('your query','searching:',6000)}
+  else if(d.type==='search'){hold(d.q||'everything','searching:',6000);
+    if(d.n===0&&d.prev!==0){express('squint',1800,'flat');say('Nothing in the box for that. Try another word.',2600)}
+    else if(d.n>0&&d.prev===0){express('happy',900)}}
+  else if(d.type==='filter'){hold(d.f==='all'?'everything/*':d.f+'/*','filtering:');if(face==='eyes')express('happy',700)}
+  else if(d.type==='copy'){express('stars',900,'smile')}
+});
 })();
 
 /* ---------- scroll: progress bar, 3D tilt kariet ---------- */
@@ -560,19 +760,42 @@ document.querySelectorAll('#grid .card').forEach((c,i)=>c.style.setProperty('--d
 (()=>{
 const q=document.getElementById('q'),cards=[...document.querySelectorAll('.card')],chips=[...document.querySelectorAll('.chip')],
       grid=document.getElementById('grid'),count=document.getElementById('count'),empty=document.getElementById('empty');
-let f='all';
+const emit=d=>document.dispatchEvent(new CustomEvent('kbx',{detail:d}));
+let f='all',prevN=null;
 function apply(){const t=q.value.trim().toLowerCase();let n=0,ng=0;
   cards.forEach(c=>{const ok=(f==='all'||c.dataset.cat.split(' ').includes(f))&&(!t||c.dataset.q.includes(t));
     const was=!c.classList.contains('hide');c.classList.toggle('hide',!ok);if(ok){n++;if(grid.contains(c))ng++;c.classList.add('in');if(!was){c.classList.remove('swap');void c.offsetWidth;c.classList.add('swap')}}});
-  count.textContent=ng+(ng===1?' item':' items');empty.hidden=n>0;}
-chips.forEach(b=>b.addEventListener('click',()=>{f=b.dataset.f;chips.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});apply()}));
-q.addEventListener('input',apply);
-addEventListener('keydown',ev=>{if(ev.key==='/'&&document.activeElement!==q){ev.preventDefault();q.focus()}if(ev.key==='Escape'){q.value='';apply();q.blur()}});
+  count.textContent='· '+ng+(ng===1?' item':' items');empty.hidden=n>0;const p=prevN;prevN=n;return [n,p]}
+chips.forEach(b=>b.addEventListener('click',()=>{f=b.dataset.f;chips.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});const [n,p]=apply();emit({type:'filter',f:b.textContent.toLowerCase().replace(/[^a-z]+/g,'-'),n,prev:p})}));
+let st=0;q.addEventListener('input',()=>{const [n,p]=apply();clearTimeout(st);st=setTimeout(()=>emit({type:'search',q:q.value.trim(),n,prev:p}),180)});
+q.addEventListener('focus',()=>emit({type:'focus',el:q}));
+addEventListener('keydown',ev=>{if(ev.key==='/'&&document.activeElement!==q){ev.preventDefault();q.focus()}if(ev.key==='Escape'&&document.activeElement===q){q.value='';apply();q.blur()}});
+// zoradenie: najnovšie / najviac hviezd
+const orig=[...grid.children],sorts=[...document.querySelectorAll('.sort button')];
+sorts.forEach(b=>b.addEventListener('click',()=>{sorts.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});
+  const list=b.dataset.s==='stars'?[...orig].sort((a,c)=>(+c.dataset.stars)-(+a.dataset.stars)):orig;
+  list.forEach(c=>{grid.appendChild(c);if(!c.classList.contains('hide')){c.classList.remove('swap');void c.offsetWidth;c.classList.add('swap')}})}));
+// hover karty -> Kubox "číta" jej README
+cards.forEach(c=>c.addEventListener('pointerenter',ev=>{if(ev.pointerType==='mouse')emit({type:'card',name:c.dataset.name,x:ev.clientX,y:ev.clientY})}));
+// kopírovanie odkazu na kartu
+const toast=document.getElementById('toast');let tt=0;
+const say=t=>{toast.textContent=t;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('on'),1800)};
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const url=location.origin+location.pathname+'#'+b.dataset.id;
+  try{await navigator.clipboard.writeText(url)}catch(e){const i=document.createElement('input');i.value=url;document.body.appendChild(i);i.select();try{document.execCommand('copy')}catch(_){}i.remove()}
+  b.classList.add('ok');setTimeout(()=>b.classList.remove('ok'),1400);history.replaceState(null,'','#'+b.dataset.id);say('Link copied');emit({type:'copy'})}));
+// obrázky: jemné nabehnutie po načítaní
+document.querySelectorAll('.img img').forEach(i=>{if(i.complete&&i.naturalWidth)i.classList.add('ok');else{i.addEventListener('load',()=>i.classList.add('ok'));i.addEventListener('error',()=>i.classList.add('ok'))}});
+// späť hore + aktívna sekcia v navigácii
+const tt2=document.getElementById('totop'),navs=[...document.querySelectorAll('.nav .links a')];
+addEventListener('scroll',()=>tt2.classList.toggle('on',scrollY>900),{passive:true});
+tt2.addEventListener('click',()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));
+const so=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)navs.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+x.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+navs.forEach(a=>{const t=document.querySelector(a.getAttribute('href'));if(t)so.observe(t)});
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 setTimeout(()=>document.querySelectorAll('[data-count]').forEach(el=>{const to=+el.dataset.count;if(!to)return;let s=null;
   const step=ts=>{s=s||ts;const k=Math.min(1,(ts-s)/900);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),document.body.classList.contains('intro-on')?2300:300);
-if(location.hash){const el=document.querySelector(location.hash);if(el){el.classList.add('in');el.style.borderColor='var(--acc)'}}
+if(location.hash){const el=document.querySelector(location.hash);if(el&&el.classList.contains('card')){el.classList.add('in','flash');setTimeout(()=>el.classList.remove('flash'),2400)}}
 })();
 </script>
 </body></html>
